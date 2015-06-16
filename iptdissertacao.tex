@@ -1,0 +1,131 @@
+\documentclass[
+	% -- opções da classe memoir --
+	12pt,				% tamanho da fonte
+	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	twoside,			% ou oneside
+%	oneside,			% ou twoside
+	a4paper,			% tamanho do papel.
+	% -- opções da classe abntex2 --
+	chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	%Sumario
+	sumario=abnt-6027-2012,
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	brazil,				% o último idioma é o principal do documento
+	]{abntex2}
+
+% ---
+% Pacotes fundamentais
+% ---
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage{lastpage}			% Usado pela Ficha catalográfica
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage[brazil]{babel}		% Para definir a língua - abntex2.cls já carrega
+% Fonte Arial >
+\usepackage{fontspec}
+\usepackage{xltxtra}
+\setromanfont[Mapping=tex-text]{Arial}
+\setsansfont[Mapping=tex-text]{Arial}
+% Fonte Arial <
+\usepackage{setspace}			% Permite Configuracao de Espaçamento entre Linhas
+\usepackage{microtype}			% Ajuda a ajustar hifenização
+%\hyphenpenalty = 10000			% Remove a Hifenização
+%\hyphenpenalty = 1000			% Reduz a Hifenização
+\usepackage{type1cm}			% Fontes Escaláveis
+\usepackage{float}				% Permite Posicionar as Figuras de Forma Correta
+\usepackage{csquotes}			% Configuração adicional para aspas
+\usepackage{lscape}				% Possibilita a criação de paginas em formato paisagem
+\usepackage{enumerate}          % permite listas numeradas
+
+\usepackage{iptabntex2}		% Pacote com Customizações do abntex2 + IPT para esta dissertaçao
+
+\usepackage[alf,abnt-emphasize=bf,abnt-etal-list=2,abnt-etal-cite=2,abnt-etal-text=2,abnt-repeated-title-omit=yes]{abntex2cite}	% Citações padrão ABNT conforme orientação do IPT
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+\titulo{Título da Dissertação}
+\autor{Autor}
+\data{Ano}
+\mes{Mês}
+\local{Cidade}
+\instituicao{\mbox{Instituto} de Pesquisas Tecnológicas do \mbox{Estado} de São Paulo}
+\tipotrabalho{Dissertação de Mestrado}
+\curso{Engenharia da Computação: Redes de Computadores}
+\concentracao{Área de Concentração: Redes de \mbox{Computadores}}
+\orientador{Prof. Dr. Orientador}
+\orientadorafiliacao{Mestrado em Engenharia de Computação}
+\membroum{Prof. Dr. Membro Um}
+\membroumAfiliacao{Mestrado em Engenharia de Computação}
+\membrodois{Prof. Dr. Membro Dois}
+\membrodoisAfiliacao{Mestrado em Engenharia de Computação}
+\palavraschave{Mestrado, IPT, LATEX, ABNTEX2.}
+\keyword{Master, IPT, LATEX, ABNTEX2.}
+%% Preambulo para Qualificacao
+\preambulo{Exame de Qualificação apresentado ao \imprimirinstituicao~- IPT, como parte dos requisitos para a obtenção do título de Mestre em \imprimircurso}
+% Preambulo para Defesa
+%\preambulo{Dissertação de Mestrado apresentada ao \imprimirinstituicao~- IPT, como parte dos requisitos para a obtenção do título de Mestre em  \imprimircurso}
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+plainpages=false,
+colorlinks=true,
+citecolor=black,
+linkcolor=black,
+urlcolor=black,
+filecolor=black,
+bookmarksopen=true,
+pdftitle={\imprimirtitulo},
+pdfauthor={\imprimirautor},
+pdfsubject={\imprimirpreambulo},
+pdfcreator={XeLaTeX com abnTeX2},
+pdfkeywords={\imprimirpalavraschave},
+bookmarksdepth=4
+}
+\makeatother
+% ---
+
+% ---
+% compila o indice
+% ---
+%\makeindex
+% ---
+
+
+\usepackage{lipsum} 
+
+% Início do documento
+% ----
+\begin{document}
+\chapterstyle{iptabntex2}			% Estilo de capitulo adotado pelo IPT
+%\sloppy							% Ajusta linhas sem a hifenização
+\frenchspacing					% Retira espaço extra, obsoleto, entre as frases.
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+\pretextual
+\input{pretexto}
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+\OnehalfSpacing
+
+\input{capitulos}
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+\postextual
+
+\input{postexto}
+
+\end{document}

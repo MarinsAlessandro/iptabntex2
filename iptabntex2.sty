@@ -263,11 +263,13 @@
 
       \hspace{.45\textwidth}
       \begin{minipage}{.52\textwidth}
-      	\SingleSpacing
+
+         \SingleSpacing
          \imprimirpreambulo
          \vspace{12pt}
          \par
          \imprimirconcentracao
+
          \vspace{24pt}
          \par
          {\imprimirorientadorRotulo:~\imprimirorientador}
@@ -284,19 +286,19 @@
 \makeatother
 % <-- Reconfiguração da Folha de Rosto
 
-% Reconfiguraçã da pagina de Dedicatoria -->
+% Reconfiguração da página de Dedicatória -->
 \renewenvironment{dedicatoria}[1][\dedicatorianame]{%
 	\ifthenelse{\equal{#1}{}}{%
 		\PRIVATEbookmarkthis{\dedicatorianame}
 	}{\pretextualchapter{#1}}
 }{\PRIVATEclearpageifneeded}
-% <-- Reconfiguraçã da pagina de Dedicatoria
+% <-- Reconfiguração da página de Dedicatória
 
-% Permite o Uso de Legendas nas Figuras e Tabelas >
+% Permite o uso de legendas nas figuras e tabelas -->
 \captionstyle{\raggedright}
 \captionnamefont{\ABNTEXfontereduzida\bfseries}
 \captiontitlefont{\ABNTEXfontereduzida}
-% Permite o Uso de Legendas nas Figuras e Tabelas <
+% <-- Permite o uso de legendas nas figuras e tabelas
 
 % Reconfigurar a formatação das fontes no sumário -->
 \renewcommand*{\cftchapterpagefont}{\normalfont}
